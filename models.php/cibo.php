@@ -3,15 +3,15 @@
 class Cibo extends Prodotto {
     public $ingredienti;
     public $scadenza;
-    public $razza;
+    public $categoria;
 
-    function __construct($_nome, $_prezzo, $_ingredienti, $_scadenza, Categoria $razza)
+    function __construct($_nome, $_prezzo, $_ingredienti, $_scadenza, Categoria $categoria)
     {
         $this->nome = $_nome;
         $this->prezzo = $_prezzo;
         $this->ingredienti = $_ingredienti;
         $this->scadenza = $_scadenza;
-        $this->razza = $razza;
+        $this->categoria = $categoria;
     }
 }
 

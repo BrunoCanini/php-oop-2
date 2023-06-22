@@ -3,13 +3,13 @@
 class Prodotto {
     public $nome;
     public $prezzo;
-    public $categoria;
+    public $immagine;
 
-    function __construct($_nome, $_prezzo, Categoria $categoria)
+    function __construct($_nome, $_prezzo, $_immagine)
     {
         $this->nome = $_nome;
         $this->prezzo = $_prezzo;
-        $this->categoria = $categoria;
+        $this->immagine = $_immagine;
     }
 }
 

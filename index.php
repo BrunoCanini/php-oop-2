@@ -50,7 +50,14 @@ $prodotti = [$prodotto1, $prodotto2, $prodotto3, $prodotto4, $prodotto5, $prodot
 
                     <p> NOME: <?php echo $prodotto->nome ?> </p>
                     <p> PREZZO: <?php echo $prodotto->prezzo ?> </p>
-                    <p> CATEGORIA: <?php echo $prodotto->getTipo() ?> </p>
+
+                    <?php if($prodotto->getTipo() == "cane"){ ?>
+                        <?php echo '<i class="fa-solid fa-dog" style="color: #000000;"></i>' ?>
+                    <?php } if($prodotto->getTipo() == "gatto"){ ?>
+                        <?php echo '<i class="fa-solid fa-cat" style="color: #000000;"></i>' ?>
+                    <?php } if($prodotto->getTipo() == "cane/gatto"){ ?>
+                        <?php echo '<i class="fa-solid fa-dog" style="color: #000000;"></i>' . '<i class="fa-solid fa-cat" style="color: #000000;"></i>' ?>
+                    <?php } ?> 
 
                     <div class="box-img">
                         <img src=" <?php echo $prodotto->immagine ?> " alt="">

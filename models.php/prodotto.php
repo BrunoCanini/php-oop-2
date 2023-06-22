@@ -1,6 +1,9 @@
 <?php 
 
 class Prodotto {
+
+    use Razza;
+
     public $nome;
     public $prezzo;
     public $immagine;

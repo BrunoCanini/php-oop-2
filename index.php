@@ -1,18 +1,26 @@
 <?php 
 
+require __DIR__ . "/models.php/traits.php";
+
 require __DIR__ . "/models.php/prodotto.php";
 require __DIR__ . "/models.php/cibo.php";
 require __DIR__ . "/models.php/cuccia.php";
-require __DIR__ . "/models.php/categoria.php";
 require __DIR__ . "/models.php/gioco.php";
 
 $prodotto1 = new Prodotto("Pettine", "5$", "https://picsum.photos/400/300");
-$prodotto2 = new Cuccia("Casetta Di Legno", "150$", "https://picsum.photos/400/300", "Nera", "Grande", new Categoria("cane"));
-$prodotto3 = new Cuccia("Castello Di Stoffa", "180$", "https://picsum.photos/400/300", "Blu", "Media", new Categoria("gatto"));
-$prodotto4 = new Cibo("Polpetta", "10$", "https://picsum.photos/400/300", "Manzo", "10/08/24", new Categoria("gatto"));
-$prodotto5 = new Cibo("Scatoletta Tonno", "30$", "https://picsum.photos/400/300", "Tonno", "12/09/24", new Categoria("cane"));
-$prodotto6 = new Gioco("Pallina", "15$", "https://picsum.photos/400/300", "bassa",  new Categoria("cane"));
-$prodotto7 = new Gioco("Corda", "15$", "https://picsum.photos/400/300", "bassa",  new Categoria("gatto"));
+$prodotto1->setTipo("cane/gatto");
+$prodotto2 = new Cuccia("Casetta Di Legno", "150$", "https://picsum.photos/400/300", "Nera", "Grande");
+$prodotto2->setTipo("cane");
+$prodotto3 = new Cuccia("Castello Di Stoffa", "180$", "https://picsum.photos/400/300", "Blu", "Media");
+$prodotto3->setTipo("gatto");
+$prodotto4 = new Cibo("Polpetta", "10$", "https://picsum.photos/400/300", "Manzo", "10/08/24");
+$prodotto4->setTipo("cane");
+$prodotto5 = new Cibo("Scatoletta Tonno", "30$", "https://picsum.photos/400/300", "Tonno", "12/09/24");
+$prodotto5->setTipo("gatto");
+$prodotto6 = new Gioco("Pallina", "15$", "https://picsum.photos/400/300", "bassa");
+$prodotto6->setTipo("cane");
+$prodotto7 = new Gioco("Corda", "15$", "https://picsum.photos/400/300", "bassa");
+$prodotto7->setTipo("gatto");
 
 $prodotti = [$prodotto1, $prodotto2, $prodotto3, $prodotto4, $prodotto5, $prodotto6, $prodotto7];
 
@@ -42,14 +50,7 @@ $prodotti = [$prodotto1, $prodotto2, $prodotto3, $prodotto4, $prodotto5, $prodot
 
                     <p> NOME: <?php echo $prodotto->nome ?> </p>
                     <p> PREZZO: <?php echo $prodotto->prezzo ?> </p>
-
-                    <?php if($prodotto->categoria->razza){?>
-                        <?php if($prodotto->categoria->razza === "cane"){?>
-                            <span> <?php echo '<i class="fa-solid fa-dog" style="color: #000000;"></i>' ?> </span>
-                        <?php } else{?>
-                            <span> <?php echo '<i class="fa-solid fa-cat" style="color: #000000;"></i>' ?> </span>
-                        <?php } ?>
-                    <?php }?>
+                    <p> CATEGORIA: <?php echo $prodotto->getTipo() ?> </p>
 
                     <div class="box-img">
                         <img src=" <?php echo $prodotto->immagine ?> " alt="">
